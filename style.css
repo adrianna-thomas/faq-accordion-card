@@ -1,0 +1,163 @@
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --Soft-violet: hsl(273, 75%, 66%);
+    --Soft-blue: hsl(240, 73%, 65%);
+    --Divider: hsl(240, 5%, 91%);
+    --Very-dark-desaturated-blue: hsl(238, 29%, 16%);
+    --Soft-red: hsl(14, 88%, 65%);
+    --Very-dark-grayish-blue: hsl(237, 12%, 33%);
+    --Dark-grayish-blue: hsl(240, 6%, 50%);
+}
+
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(var(--Soft-violet), var(--Soft-blue));
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.card {
+    width: 15rem;
+    background: white;
+    background-image: url(./images/bg-pattern-mobile.svg) top center;
+    padding: 1rem;
+    border-radius: 25px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+.mobile-image {
+    position: relative;
+    top: -8rem;
+    margin-bottom: -7rem;
+}
+
+.mobile-image-shadow {
+    position: relative;
+    max-width: 150%;
+    top: -8.5rem;
+    left: 1.5rem;
+    margin-bottom: -8rem;
+}
+
+.desktop-image,
+.box-image,
+.desktop-bg {
+    display: none;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: .5rem;
+    border-bottom: 1px solid var(--Divider);
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding-top: .5rem;
+}
+
+.question img {
+    align-self: center;
+}
+
+.question-text {
+    color: var(--Very-dark-grayish-blue);
+}
+
+.answer-text {
+    color: var(--Dark-grayish-blue);
+    margin-top: .5rem;
+    height: 0;
+    overflow: hidden;
+}
+
+
+/*Hover & Active State */
+
+.question-text:hover {
+    color: var(--Soft-red);
+}
+
+.active p.question-text {
+    color: var(--Very-dark-desaturated-blue);
+    font-weight: 700;
+}
+
+.active img {
+    transform: rotate(180deg);
+}
+
+.accordion.active .answer-text {
+    height: 100%;
+}
+
+@media only screen and (min-width: 700px) and (max-width: 1440px) {
+    .card {
+        width: 45rem;
+        height: 20rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background: rgb(266, 266, 266);
+    }
+    h1 {
+        text-align: left;
+    }
+    .accordion-container {
+        margin-top: 2rem;
+    }
+    .accordion {
+        height: auto;
+    }
+    .mobile-image,
+    .mobile-image-shadow {
+        display: none;
+    }
+    .desktop-image,
+    .box-image {
+        display: inline;
+    }
+    .card-header {
+        overflow: hidden;
+        background-image: url(./images/bg-pattern-desktop.svg);
+        background-repeat: no-repeat;
+        background-size: 106%;
+        background-position-x: -5rem;
+    }
+    .desktop-image {
+        position: relative;
+        top: 1rem;
+        left: -3rem;
+    }
+    .box-image {
+        position: absolute;
+        top: 18rem;
+        left: -.19rem;
+        z-index: 3;
+    }
+}
